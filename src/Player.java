@@ -3,6 +3,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Player {
+    private int cardCount = GameType.POKER_GAME.getCardCount();
+
     private String name; //자신의 이름 가지기
     private List<Card> hand = new ArrayList<>();
 
@@ -11,10 +13,10 @@ public class Player {
     }
 
     /**
-     * 카드 5장 받아서 보관 후 정렬
+     * 카드 받아서 보관 후 정렬
      */
     public void receivCard(Deck deck) {
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < cardCount; i++) {
             hand.add(deck.draw());
         }
         Collections.sort(hand);
@@ -36,6 +38,10 @@ public class Player {
      */
     public List<Card> getHand() {
         return hand;
+    }
+
+    public String getName() {
+        return name;
     }
 
 }
