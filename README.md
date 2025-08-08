@@ -70,28 +70,27 @@
   - `List<Card> cards`: 52장의 카드 저장
 - **주요 메서드:**
   - 생성자: 52장 카드 자동 생성
-  - `cardShuffle()`: 카드 섞기
-  - `draw()`: 카드 한 장 뽑기
+  - `shuffle()`: 카드 섞기
+  - `draw()`: 카드 한 장 주기
   - `size()`: 남은 카드 개수 확인
+  - `toString()`: 출력
 
 ### 3. Player 클래스
 - **역할:** 플레이어와 손에 든 카드 관리
 - **속성:**
   - `String name`: 플레이어 이름
-  - `List<Card> hand`: 손에 든 카드들 (5장)
+  - `List<Card> hand`: 손에 든 카드들
 - **주요 메서드:**
-  - `receiveCard()`: 카드 받기
-  - `sortHand()`: 손에 든 카드 정렬
-  - `calculateSum()`: 카드 합계 계산
-  - `showHand()`: 카드 출력
+  - `receivCard()`: 카드 받아서 보관 후 정렬
+  - `getSum()`: 카드 합계 계산
+  - `getHand()`: 카드 출력
+  - `getName()`: 이름 출력
 
-### 4. Game 클래스
+### 4. Referee 클래스
 - **역할:** 전체 게임 진행 관리
 - **주요 메서드:**
-  - `start()`: 게임 시작
-  - `dealCards()`: 카드 나눠주기
-  - `determineWinner()`: 승부 판정
-  - `displayResult()`: 결과 출력
+  - `gameStart()`: 게임 시작
+  - `judgMent()`: 승부 판정
 
 ---
 
@@ -101,6 +100,4 @@
 - [x] Player 클래스 완전 구현
 - [x] Referee 클래스 완전 구현
 - [x] 기본 동작 테스트 완료
-
-## 🚧 진행 중인 부분
-- [ ] ENUM 도입
+- [x] ENUM 도입

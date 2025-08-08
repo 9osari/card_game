@@ -40,6 +40,9 @@ public class Player {
         return hand;
     }
 
+    /**
+     * 자신의 이름 출력
+     */
     public String getName() {
         return name;
     }

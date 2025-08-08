@@ -26,7 +26,7 @@ public class Referee implements Game {
 
         for (Player player : players) {
             int sum = player.getSum();
-            System.out.println("플레이어1의 카드: "+player.getHand() + ", 합계: " + sum);
+            System.out.println(player.getName() + "의 카드 : "+player.getHand() + ", 합계: " + sum);
 
             if(sum > maxSum) {
                 maxSum = sum;

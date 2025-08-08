@@ -1,5 +1,5 @@
 public enum GameType {
-    POKER_GAME(2, 5);
+    POKER_GAME(2, 5); //2명 5장
 
     private int playerCount;
     private int cardCount;
