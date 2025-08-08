@@ -15,13 +15,13 @@ public class Card implements Comparable<Card>{
     public String toString() {
         String symbol = "";
         if(pattern.equals("Spade")) {
-            symbol = "\u2660";
+            symbol = "♠\uFE0F";
         } else if(pattern.equals("Heart")) {
-            symbol = "\u2665";
+            symbol = "❤\uFE0F";
         } else if(pattern.equals("Club")) {
-            symbol = "\u2663";
+            symbol = "♣\uFE0F";
         } else {
-            symbol = "\u2666";
+            symbol = "\uD83D\uDC8E";
         }
         return num + "("+symbol+")";
     }
