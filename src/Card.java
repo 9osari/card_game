@@ -1,8 +1,8 @@
 public class Card implements Comparable<Card>{
-    private int num;
-    private String pattern;
+    private final int num;
+    private final Suit pattern;
 
-    public Card(int num, String pattern) {
+    public Card(int num, Suit pattern) {
         this.num = num;
         this.pattern = pattern;
     }
@@ -14,14 +14,14 @@ public class Card implements Comparable<Card>{
     @Override
     public String toString() {
         String symbol = "";
-        if(pattern.equals("Spade")) {
-            symbol = "♠\uFE0F";
-        } else if(pattern.equals("Heart")) {
-            symbol = "❤\uFE0F";
-        } else if(pattern.equals("Club")) {
-            symbol = "♣\uFE0F";
+        if(pattern == Suit.SPADE) {
+            symbol = Suit.SPADE.getSymbol();
+        } else if(pattern == Suit.HEART) {
+            symbol = Suit.HEART.getSymbol();
+        } else if(pattern == Suit.CLUB) {
+            symbol = Suit.CLUB.getSymbol();
         } else {
-            symbol = "\uD83D\uDC8E";
+            symbol = Suit.DIAMOND.getSymbol();
         }
         return num + "("+symbol+")";
     }
@@ -34,6 +34,15 @@ public class Card implements Comparable<Card>{
      */
     @Override
     public int compareTo(Card o) {
+        if(this.num != o.num) {
+            return Integer.compare(this.num, o.num);
+        } else {
+            return this.pattern.compareTo(o.pattern);
+            /*ENUM을 가지고 비교하도록 자바 내부에서 구현이 되어있음...
+            ENUM 자체의 순서를 가지고 compareTo를 비교..final이라 재구현 불가 그냥 쓰셈 ㅋㅋ*/
+        }
+
+        /*
         if(this.num < o.num) {
             return -1;
         } else if(this.num > o.num) {
@@ -49,13 +58,13 @@ public class Card implements Comparable<Card>{
             } else {
                 return 0;
             }
-        }
+        }*/
     }
-
-    /**
+/*
+    *//**
      * 패턴 순서 구분
      * 1(♠), 1(♥), 2(♦), 3(♣) 순서로 출력
-     */
+     *//*
     public int getPattern(String pattern) {
         if(pattern.equals("Spade")) {
             return 0;
@@ -67,4 +76,6 @@ public class Card implements Comparable<Card>{
             return 3;
         }
     }
+    카드 패턴에 대한 ENUM 도입으로 불필요..
+    */
 }

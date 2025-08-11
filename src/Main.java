@@ -1,5 +1,3 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Game game = new Referee();
@@ -13,8 +11,8 @@ public class Main {
 
     private static void cardTest() {
         System.out.println("ㅡㅡㅡㅡㅡㅡㅡcardTestㅡㅡㅡㅡㅡㅡㅡㅡ");
-        Card card1 = new Card(1, "Spade");
-        Card card2 = new Card(1, "Heart");
+        Card card1 = new Card(1, Suit.SPADE);
+        Card card2 = new Card(1, Suit.HEART);
         System.out.println("card1.compareTo(card2): "+card1.compareTo(card2));
         System.out.println("card1: "+card1);
     }

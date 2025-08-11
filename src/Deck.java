@@ -10,7 +10,7 @@ public class Deck {
      * 카드 뭉치
      */
     public Deck() {
-        String[] patterns = {"Spade", "Heart", "Diamond", "Club"};
+        Suit[] patterns = {Suit.SPADE, Suit.HEART, Suit.CLUB, Suit.DIAMOND};
         for(int i = 1; i <= 13; i++) {
             for(int j = 0; j < 4; j++) {
                 cards.add(new Card(i, patterns[j]));
