@@ -1,3 +1,5 @@
+package card_game;
+
 public class Card implements Comparable<Card>{
     private final int num;
     private final Suit pattern;

@@ -1,3 +1,5 @@
+package card_game;
+
 public enum Suit {
     SPADE("♠\uFE0F"),
     HEART("❤\uFE0F"),

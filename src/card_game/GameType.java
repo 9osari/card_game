@@ -1,3 +1,5 @@
+package card_game;
+
 public enum GameType {
     POKER_GAME(2, 5); //2명 5장
 
