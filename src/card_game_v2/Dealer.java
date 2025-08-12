@@ -1,5 +1,7 @@
 package card_game_v2;
 
+import java.util.List;
+
 public interface Dealer {
-    void judgMent(Player player1, Player player2);
+    void judgMent(List<Player> player);
 }

@@ -1,28 +1,44 @@
 package card_game_v2;
 
-public class PokerGame implements Game {
-    private final DealerImpl dealer;
-    private final PlayerImpl player1;
-    private final PlayerImpl player2;
-    private final DeckImpl deck;
+import java.util.ArrayList;
+import java.util.List;
 
-    public PokerGame(DealerImpl dealer, PlayerImpl player1, PlayerImpl player2, DeckImpl deck) {
-        this.dealer = dealer;
-        this.player1 = player1;
-        this.player2 = player2;
-        this.deck = deck;
+public class PokerGame implements Game {
+    private final Dealer dealer;
+    private final List<Player> players;
+    private final Deck deck;
+
+    public PokerGame() {
+        dealer = new DealerImpl();
+        players = new ArrayList<>();
+        deck = new DeckImpl();
     }
 
     @Override
     public void gameStart() {
-        deck.shuffle();
-        for (int i = 0; i < 5; i++) {
-            player1.addCard(deck.draw());
-            player2.addCard(deck.draw());
-        }
-        player1.sortCard();
-        player2.sortCard();
+        initializePlayers();    //플레이어 생성
 
-        dealer.judgMent(player1, player2);
+        deck.shuffle();     //카드 섞기
+
+        distributeCards();  //카드 배분
+
+        dealer.judgMent(players);   //승자 판정
+    }
+
+    private void distributeCards() {
+        // 각 플레이어에게 5장씩 배분
+        for (Player player : players) {
+            for (int i = 0; i < 5; i++) {
+                player.addCard(deck.draw());
+            }
+            player.sortCard(); //정렬
+        }
+    }
+
+    private void initializePlayers() {
+        // 플레이어 생성
+        for (int i = 0; i < 2; i++) {
+            players.add(new PlayerImpl());
+        }
     }
 }

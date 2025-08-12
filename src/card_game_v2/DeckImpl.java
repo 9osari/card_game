@@ -24,6 +24,6 @@ public class DeckImpl implements Deck {
 
     @Override
     public Card draw() {
-        return cards.remove(0);
+        return cards.removeFirst();
     }
 }

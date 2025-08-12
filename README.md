@@ -104,7 +104,12 @@
 
 
 ## 2025-08-11 피드백 후
-너무 기능에만 치중한거 같다. [눈으로 보는 OOP](https://factual-session-a24.notion.site/OOP-6bd16f7647554dd1bcca0001da50b617)
+너무 기능에만 치중 -> 절차적 사고 ㅅㅂ
+모든게 [Referee.java](src/card_game/Referee.java)에 몰려있었음.. 그로인한 개고기잡탕 코드 -> 책임 과부화
+[Game.java](src/card_game/Game.java) 이새끼는 왜 판정까지 가지고있는지??????
+[GameType.java](src/card_game/GameType.java) 굳이?????
+
+[눈으로 보는 OOP](https://factual-session-a24.notion.site/OOP-6bd16f7647554dd1bcca0001da50b617)
 3번 읽고 2.0으로 다시 설계 해보자
 
 ## 기능 추출
@@ -114,16 +119,26 @@
 - 카드 숫자의 합계가 큰 플레이어가 승리 같으면 무승부
 
 ## 역할 분류
-### 덱
+### Deck -> [DeckImpl.java](src/card_game_v2/DeckImpl.java)
 - 52장의 포커카드 모음
 - 카드 섞기
 - 카드 한 장씩 나눠주기
 
-### 플레이어
+### Card -> [Card.java](src/card_game_v2/Card.java)
+- 카드 한장 저장
+- 카드 번호/패턴 저장 및 출력
+- 비교 및 정렬
+
+### Player -> [PlayerImpl.java](src/card_game_v2/PlayerImpl.java)
 - 카드 5장 받기
 - 받은 카드 정렬
 - 카드 보여주기
 - 카드 합계 계산
 
-### 딜러
+### Dealer -> [DealerImpl.java](src/card_game_v2/DealerImpl.java)
 - 승부 판정을 위한 플레이어 카드 비교
+- 출력...? (실제 딜러처럼 "승부를 판정하고 결과를 알려주는" 역할이라 생각했습니다.)
+- TODO: 나중에 판정과 출력을 더 분리할 수도 있음
+
+### PokerGame -> [PokerGame.java](src/card_game_v2/PokerGame.java)
+- 게임의 전반적인 흐름 제어

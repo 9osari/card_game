@@ -13,10 +13,6 @@ public class Card implements Comparable<Card> {
         return num;
     }
 
-    public Suit getPattern() {
-        return pattern;
-    }
-
     @Override
     public String toString() {
         return num + "("+ pattern.getSymbol()+")";
@@ -24,9 +20,10 @@ public class Card implements Comparable<Card> {
 
 
     /**
-     * ENUM을 가지고 비교하도록 자바 내부에서 구현이 되어있음...
-     * ENUM 자체의 순서를 가지고 compareTo를 비교..
-     * final이라 재구현 불가
+     * 패턴 비교는 Enum.compareTo()를 활용
+     * (Enum의 선언 순서에 따라 자동으로 비교됨)
+     *
+     * Suit.compareTo()는 final이라 재정의 불가하므로 기본 구현을 그대로 사용
      */
     @Override
     public int compareTo(Card o) {
